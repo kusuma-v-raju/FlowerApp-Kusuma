@@ -8,6 +8,6 @@
 
     <p>Name : {{ $flower->name }}</p>
     <p>Price : {{ $flower->price }}</p>
-
+    <p>Comments : {{ $flower->comment}}</p>
 
 @endsection

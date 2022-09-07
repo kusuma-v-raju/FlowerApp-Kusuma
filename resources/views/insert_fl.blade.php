@@ -1,6 +1,11 @@
 @extends ('layout')
 
 @section('title', 'Insert Flower')
+
+@section('css')
+    <link rel="stylesheet" href="insert.css">
+@endsection
+
 @section('content')
 
     <h2>Insert a new Flower</h2>

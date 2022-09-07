@@ -3,8 +3,9 @@
 @section('title', 'Flowers List')
 
 @section('css')
-<link rel="stylesheet" href="contact_style.css">
+    <link rel="stylesheet" href="flower.css">
 @endsection
+
 @section('content')
     <h2>Flowers List</h2>
 

@@ -15,7 +15,13 @@ class Flower extends Model
 
     public function price(): Attribute {
         return Attribute::make(
-            get: fn ($value) => ucfirst($value),
+            get: fn ($value) => strtoupper($value),
+            set: fn ($value) => strtolower($value)
         );
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
