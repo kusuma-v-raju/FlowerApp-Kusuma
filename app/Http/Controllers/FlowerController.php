@@ -134,4 +134,8 @@ class FlowerController extends Controller
         } else
             return back()->with('error', 'Delete didnt work.');
     }
+
+    public function contact() {
+        return view('contact');
+    }
 }

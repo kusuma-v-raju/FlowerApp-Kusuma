@@ -33,3 +33,5 @@ Route::get('/flowers/delete/{id}', [FlowerController::class, 'destroy']);
 // Show :
 Route::get('/flowers/details/{id}', [FlowerController::class, 'show']);
 
+// Contact :
+Route::get('/flowers/contact/', [FlowerController::class, 'contact']);
