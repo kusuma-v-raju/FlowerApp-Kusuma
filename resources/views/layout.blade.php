@@ -22,8 +22,20 @@
                 <a href="{{ url('/flowers/insert') }}">Insert new Flower</a>
             </li>
             <li>
+                <a href="{{ url('/flowers/comments') }}">Comments</a>
+            </li>
+            <li>
                 <a href="{{ url('/flowers/contact') }}">Contact</a>
             </li>
+            @if(!session()->exists('email'))
+            <li>
+                <a href="{{ url('/flowers/login') }}">LogIn Page</a>
+            </li>
+            @else
+            <li>
+                <a href="{{ url('/flowers/logout') }}">LogOut Page</a>
+            </li>
+            @endif
         </ul>
     </nav>
     <div class="content">

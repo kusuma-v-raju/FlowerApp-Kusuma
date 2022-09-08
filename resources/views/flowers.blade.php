@@ -3,7 +3,7 @@
 @section('title', 'Flowers List')
 
 @section('css')
-    <link rel="stylesheet" href="flower.css">
+    <link rel="stylesheet" href="css/flower.css">
 @endsection
 
 @section('content')
@@ -19,11 +19,11 @@
 
     @foreach ($flowers as $f)
         <p><strong>Name : </strong> {{ $f->name }}</p>
-        <p><strong>Price : </strong> {{ $f->price }}</p>
+        {{-- <p><strong>Price : </strong> {{ $f->price }}</p>  to have done the euro sign excercise--}}
+        <p><strong>Price : </strong> {{ $f->priceWithEuro }}</p>
         <a href="{{ url('/flowers/details', $f->id) }}">Details</a> /
         <a href="{{ url('/flowers/update', $f->id) }}">Update</a> /
         <a href="{{ url('/flowers/delete', $f->id) }}">Delete</a>
-
         <hr>
     @endforeach
 

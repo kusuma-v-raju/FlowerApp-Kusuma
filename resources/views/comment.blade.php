@@ -6,5 +6,9 @@
 
     <h2>Comment Page</h2>
 
-    <p>Comment : {{$comment->comment}}</p>
+    @foreach ($comments as $c)
+        <p>For Flower : {{ $c->flower->name }}</p>
+        <p>Comment : {{ $c->comment }} </p>
+        <hr>
+    @endforeach
 @endsection

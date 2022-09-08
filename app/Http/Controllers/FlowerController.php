@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Flower;
-use App\Models\Comment;
+
 
 class FlowerController extends Controller
 {
@@ -68,7 +68,9 @@ class FlowerController extends Controller
      */
     public function show($id)
     {
-        return view('show-flower', ['flower' => Flower::find($id)]);
+        $flower = Flower::find($id);
+        return view('show-flower', ['flower' => $flower]);
+       
     }
 
     /**
@@ -140,8 +142,4 @@ class FlowerController extends Controller
         return view('contact');
     }
 
-    public function comment($id) {
-        $comment = Comment::find($id);
-        return view('comment',['comment' => $comment]);
-    }
 }

@@ -13,10 +13,10 @@ class Flower extends Model
 
     public $timestamps = false;
 
-    public function price(): Attribute {
+    public function priceWithEuro(): Attribute {
         return Attribute::make(
-            get: fn ($value) => strtoupper($value),
-            set: fn ($value) => strtolower($value)
+            // get: fn ($value) => $value . ' £',
+            get: fn () => $this->attributes['price'] . ' £',
         );
     }
 

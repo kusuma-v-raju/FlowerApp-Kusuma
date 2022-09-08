@@ -4,7 +4,7 @@
 
 
 @section('css')
-    <link rel="stylesheet" href="contact_style.css">
+    <link rel="stylesheet" href="{{asset ('css/contact_style.css')}}">
 @endsection
 
 @section('content')
@@ -13,7 +13,9 @@
 
     <form method="post">
         @csrf
-        <input type="text" name="name" placeholder="Contact"><br>
+        <input type="text" name="name" placeholder="Name"><br>
+        <input type="text" name="email" placeholder="Email"><br>
+        <textarea name="message" cols="30" rows="20" placeholder="Email"> </textarea><br>
         <input type="submit" value="Submit">
     </form>
 

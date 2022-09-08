@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FlowerController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,21 +22,30 @@ Route::get('/', function () {
 
 Route::get('/flowers', [FlowerController::class, 'index']);
 // Insert :
-Route::get('/flowers/insert', [FlowerController::class, 'create']);
-Route::post('/flowers/insert', [FlowerController::class, 'store']);
+Route::get('/flowers/insert', [FlowerController::class, 'create'])->middleware('login');
+Route::post('/flowers/insert', [FlowerController::class, 'store'])->middleware('login');
 
 // Update : 
-Route::get('/flowers/update/{id}', [FlowerController::class, 'edit']);
-Route::put('/flowers/update/{id}', [FlowerController::class, 'update']);
+Route::get('/flowers/update/{id}', [FlowerController::class, 'edit'])->middleware('login');
+Route::put('/flowers/update/{id}', [FlowerController::class, 'update'])->middleware('login');
 
 // Delete :
-Route::get('/flowers/delete/{id}', [FlowerController::class, 'destroy']);
+Route::get('/flowers/delete/{id}', [FlowerController::class, 'destroy'])->middleware('login');
 
 // Show :
 Route::get('/flowers/details/{id}', [FlowerController::class, 'show']);
 
 // Contact :
-Route::get('/flowers/contact', [FlowerController::class, 'contact']);
+// either create a new controller or write a function inside the route
+Route::get('/flowers/contact', function () {
+    return view('contact');
+});
 
 // Comment :
-Route::get('/flowers/comment', [FlowerController::class, 'comment']);
+Route::get('/flowers/comments', [CommentController::class, 'index']);
+
+//Login
+Route::get('/flowers/login', [LoginController::class, 'logInForm'])->middleware('login');
+Route::post('/flowers/login', [LoginController::class, 'login']);
+
+Route::get('/flowers/logout', [LoginController::class, 'logout']);
